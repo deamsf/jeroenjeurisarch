@@ -2,7 +2,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-primary isometric-grid">
       <div className="container mx-auto px-6">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title">Over mezelf</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-display font-bold mb-4">Jeroen Jeuris</h3>

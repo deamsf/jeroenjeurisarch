@@ -92,7 +92,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
           <p className="text-xl text-primary/90 mb-12 max-w-xl">
             Modern architecture that pushes boundaries and creates lasting impressions
           </p>
-          <button onClick={onContactClick} className="btn-primary">Contact me</button>
+          <button onClick={onContactClick} className="btn-primary">Contacteer mij</button>
         </div>
       </div>
       

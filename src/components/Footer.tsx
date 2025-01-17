@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="border-t border-primary/10 pt-8">
           <div className="grid md:grid-cols-2 gap-8 text-primary/60 text-sm">
             <div>
-              <p>&copy; {new Date().getFullYear()} Architectural Studio Jeuris. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Jeroen Jeuris Architect. Alle rechten voorbehouden.</p>
             </div>
             <div className="md:text-right">
               <p>
