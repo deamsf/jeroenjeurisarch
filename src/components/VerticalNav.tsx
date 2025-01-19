@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiHome, FiUser, FiMessageSquare, FiStar, FiBriefcase } from 'react-icons/fi';
+import { FiHome, FiUser, FiStar, FiBriefcase } from 'react-icons/fi';
 import { BiBuildings } from 'react-icons/bi';
 
 export const navItems = [
