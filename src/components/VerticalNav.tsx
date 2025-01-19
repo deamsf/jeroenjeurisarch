@@ -8,7 +8,6 @@ export const navItems = [
   { id: 'about', icon: FiUser, label: 'Over mezelf' },
   { id: 'services', icon: FiBriefcase, label: 'Services' },
   { id: 'testimonials', icon: FiStar, label: 'Testimonials' },
-  { id: 'contact', icon: FiMessageSquare, label: 'Contact' },
 ];
 
 export default function VerticalNav() {

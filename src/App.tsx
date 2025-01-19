@@ -2,10 +2,9 @@ import ProjectsSection from './components/ProjectsSection';
 import HeroBanner from './components/HeroBanner';
 import VerticalNav from './components/VerticalNav';
 import MobileNav from './components/MobileNav';
+import CombinedSection from './components/CombinedSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -24,13 +23,13 @@ export default function App() {
 
       <ProjectsSection />
       
-      <AboutSection />
-
+      <CombinedSection />
+      
       <ServicesSection />
-
+      
       <TestimonialsSection />
 
-      <ContactSection />
+      {/* <ContactSection /> */}
 
       <Footer />
     </div>

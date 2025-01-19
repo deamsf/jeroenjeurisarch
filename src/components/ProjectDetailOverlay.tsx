@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSwipeable } from 'react-swipeable';
 import { Project } from '../types/project';
 import { getProjectImages } from '../utils/projects';
+import ReactMarkdown from 'react-markdown';
 
 interface ProjectDetailOverlayProps {
   project: Project;
@@ -12,6 +13,7 @@ interface ProjectDetailOverlayProps {
 export default function ProjectDetailOverlay({ project, onClose }: ProjectDetailOverlayProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [projectImages, setProjectImages] = useState<string[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
 
   useEffect(() => {
     const loadImages = () => {
@@ -19,15 +21,25 @@ export default function ProjectDetailOverlay({ project, onClose }: ProjectDetail
         const projectId = project.imagePath.split('/')[3];
         const images = getProjectImages(projectId);
         setProjectImages(images.length > 0 ? images : [project.imagePath]);
+        setImagesLoaded(new Array(images.length).fill(false));
       } catch (error) {
         console.error('Error loading project images:', error);
         setProjectImages([project.imagePath]);
+        setImagesLoaded([false]);
       }
     };
 
     loadImages();
     setCurrentImageIndex(0);
   }, [project]);
+
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
 
   const handlePrevImage = () => {
     setCurrentImageIndex(prev => 
@@ -50,67 +62,108 @@ export default function ProjectDetailOverlay({ project, onClose }: ProjectDetail
 
   return (
     <div 
-      className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-black/95 z-50 overflow-y-auto"
       onClick={onClose}
-      {...handlers}
     >
       <div 
-        className="relative w-full h-full flex items-center justify-center"
+        className="min-h-screen w-full flex flex-col lg:flex-row"
         onClick={e => e.stopPropagation()}
       >
-        {/* Current Image */}
-        <div className="w-full h-full flex items-center justify-center p-4">
-          <img
-            key={projectImages[currentImageIndex]}
-            src={projectImages[currentImageIndex]}
-            alt={`${project.title} - View ${currentImageIndex + 1}`}
-            className="max-h-[85vh] max-w-full w-auto h-auto object-contain"
-          />
+        {/* Preload Images */}
+        <div className="hidden">
+          {projectImages.map((src, index) => (
+            <img
+              key={`preload-${src}`}
+              src={src}
+              onLoad={() => handleImageLoad(index)}
+              alt=""
+            />
+          ))}
         </div>
 
-        {/* Navigation Controls */}
-        {projectImages.length > 1 && (
-          <>
-            {/* Left Arrow */}
-            <button
-              onClick={handlePrevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
+        {/* Image Section */}
+        <div className="relative w-full lg:w-2/3 h-[50vh] lg:h-screen flex items-center justify-center p-4" {...handlers}>
+          <div className="relative w-full h-full flex items-center justify-center">
+            {!imagesLoaded[currentImageIndex] && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+            <img
+              key={projectImages[currentImageIndex]}
+              src={projectImages[currentImageIndex]}
+              alt={`${project.title} - View ${currentImageIndex + 1}`}
+              className={`w-full h-full object-contain transition-opacity duration-300 ${
+                imagesLoaded[currentImageIndex] ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          </div>
 
-            {/* Right Arrow */}
-            <button
-              onClick={handleNextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors"
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
+          {projectImages.length > 1 && (
+            <>
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
 
-            {/* Progress Dots */}
-            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2">
-              {projectImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentImageIndex
-                      ? 'bg-white'
-                      : 'bg-white/40 hover:bg-white/60'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
+              <button
+                onClick={handleNextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {projectImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex
+                        ? 'bg-white'
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Content Section */}
+        <div className="w-full lg:w-1/3 min-h-[50vh] lg:h-screen bg-white/10 backdrop-blur-md p-8 lg:p-12 overflow-y-auto">
+          <div className="h-full flex flex-col">
+            <div className="mb-8">
+              <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mb-4">
+                {project.title}
+              </h2>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.tags.map(tag => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/90"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </>
-        )}
+
+            <div className="prose prose-invert prose-lg max-w-none">
+              <ReactMarkdown>{project.longDescription}</ReactMarkdown>
+            </div>
+          </div>
+        </div>
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors"
+          className="fixed top-4 right-4 p-2 bg-black/50 hover:bg-black/75 rounded-full text-white transition-colors z-50"
           aria-label="Close overlay"
         >
           <X className="w-6 h-6" />

@@ -11,6 +11,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [lastMoveTime, setLastMoveTime] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
   const projectImages = projectsData.map(project => project.imagePath);
 
   useEffect(() => {
@@ -21,6 +22,18 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    setImagesLoaded(new Array(projectImages.length).fill(false));
+  }, [projectImages.length]);
+
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (isMobile || projectImages.length === 0) return;
@@ -59,38 +72,57 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
       onMouseMove={handleMouseMove}
       {...handlers}
     >
+      {/* Preload Images */}
+      <div className="hidden">
+        {projectImages.map((src, index) => (
+          <img
+            key={`preload-${src}`}
+            src={src}
+            onLoad={() => handleImageLoad(index)}
+            alt=""
+          />
+        ))}
+      </div>
+
       {projectImages.map((image, index) => (
         <div
           key={image}
-          className={`absolute inset-0 transition-opacity duration-300 ${
+          className={`absolute inset-0 transition-opacity duration-500 ${
             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ willChange: 'opacity' }}
         >
+          {!imagesLoaded[index] && index === currentImageIndex && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black">
+              <div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
           <img
             src={image}
             alt="Architectural project"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              imagesLoaded[index] ? 'opacity-100' : 'opacity-0'
+            }`}
             style={{ willChange: 'transform' }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/70"></div>
         </div>
       ))}
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container relative z-10">
         <div className="max-w-3xl">
           <div className="animate-float">
             <h1 className="text-6xl md:text-8xl font-display font-bold text-primary mb-6 leading-tight">
-              Creating<br />
-              <span className="text-accent">Spaces</span> That<br />
+              Innovatief<br />
+              <span className="text-accent">Inspirerend</span><br />
               <span className="relative group">
-                Inspire
+                Impactvol
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></span>
               </span>
             </h1>
           </div>
           <p className="text-xl text-primary/90 mb-12 max-w-xl">
-            Modern architecture that pushes boundaries and creates lasting impressions
+            Moderne, duurzame architectuur die grenzen verlegt
           </p>
           <button onClick={onContactClick} className="btn-primary">Contacteer mij</button>
         </div>

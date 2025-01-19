@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,23 +6,27 @@
 
 @layer base {
   body {
-    @apply bg-primary text-secondary;
+    @apply bg-primary text-secondary antialiased;
   }
 }
 
 @layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 w-[92%] md:w-[85%] xl:w-[80%] max-w-[1400px];
+  }
+  
   .btn-primary {
-    @apply px-6 py-3 bg-accent text-white font-semibold rounded-lg 
+    @apply px-4 py-2 md:px-6 md:py-3 bg-accent text-white font-semibold rounded-lg 
            transition-all duration-300 hover:bg-opacity-90 hover:scale-105 
            hover:shadow-[0_0_30px_rgba(250,128,114,0.3)];
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-display font-bold mb-12 relative;
+    @apply text-3xl md:text-4xl xl:text-5xl font-display font-bold mb-8 md:mb-12 xl:mb-16 relative;
   }
   
   .section-title::after {
-    @apply content-[''] absolute -bottom-4 left-0 w-24 h-1 bg-accent;
+    @apply content-[''] absolute -bottom-4 left-0 w-16 md:w-24 h-1 bg-accent;
   }
   
   .project-card {
@@ -33,33 +37,17 @@
   .project-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-accent to-accent/80
            flex items-center justify-center opacity-0 backdrop-blur-sm
-           transition-all duration-500 hover:opacity-100 p-6 text-white;
+           transition-all duration-500 hover:opacity-100 p-4 md:p-6 text-white;
   }
   
   .service-card {
-    @apply p-8 rounded-lg transition-all duration-500 hover:shadow-2xl 
-           hover:shadow-accent/20 hover:-translate-y-2 bg-gradient-to-br 
-           from-white to-white/95 border-2 border-transparent 
-           hover:border-accent/10;
+    @apply p-6 md:p-8 rounded-lg transition-all duration-500 hover:shadow-2xl 
+           hover:shadow-accent/20 hover:-translate-y-2 border-2
+           hover:border-accent/20;
   }
 
   .isometric-grid {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M0 30l30-30m0 60L0 30m30-30l30 30m0-30L30 30m0 30l30-30' stroke='rgba(26,26,26,0.03)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
-}
-
-.form-input {
-  @apply w-full p-3 border-2 border-secondary/10 rounded-lg focus:border-accent 
-         focus:outline-none transition-colors duration-300 bg-white/50 
-         backdrop-blur-sm focus:shadow-[0_0_20px_rgba(250,128,114,0.15)];
-}
-
-@keyframes swipe {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-10px); }
-}
-
-.animate-swipe {
-  animation: swipe 2s ease-in-out infinite;
 }

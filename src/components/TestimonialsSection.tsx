@@ -46,9 +46,9 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-secondary overflow-hidden">
-      <div className="container mx-auto px-6">
-        <h2 className="section-title text-primary">What Clients Say</h2>
+    <section id="testimonials" className="py-16 md:py-24 bg-secondary overflow-hidden">
+      <div className="container">
+        <h2 className="section-title text-primary">What zij zeggen</h2>
         
         <div className="relative mt-12">
           <div className="max-w-4xl mx-auto">
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
-                    className="w-full flex-shrink-0 px-4"
+                    className="w-full flex-shrink-0"
                   >
                     <div className="bg-primary/5 backdrop-blur-sm rounded-2xl p-8 md:p-12">
                       <RiDoubleQuotesL className="text-5xl text-accent mb-6" />

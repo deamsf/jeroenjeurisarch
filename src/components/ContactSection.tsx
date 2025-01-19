@@ -55,7 +55,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-secondary">
-      <div className="container mx-auto px-6">
+      <div className="container">
         <h2 className="section-title text-primary">Get in Touch</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -113,7 +113,7 @@ export default function ContactSection() {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <FiMail className="text-2xl" />
-                <span>jeroen@jeroenjeuris.be</span>
+                <span><a href="mailto:info@jeroenjeuris.be">info@jeroenjeuris.be</a></span>
               </div>
               <div className="flex items-center space-x-4">
                 <FiPhone className="text-2xl" />
