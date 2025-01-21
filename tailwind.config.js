@@ -17,9 +17,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#ffffff',
-        secondary: '#1a1a1a',
-        accent: '#fa8072',
+        primary: '#f4f4f2',  /*  e0e2ee*/
+        secondary: '#383838', /* 476b77 */
+        accent: '#f0b072 ', /* ffc704 */
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -27,7 +27,7 @@ export default function ProjectsSection() {
     <>
       <section className="py-20 bg-secondary" id="projects">
         <div className="container mx-auto px-6">
-          <h2 className="section-title text-primary">Featured Projects</h2>
+          <h2 className="section-title text-primary">Projecten</h2>
           
           <div className="flex flex-wrap gap-2 mb-8">
             {availableTags.map(tag => (

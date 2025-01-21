@@ -8,11 +8,11 @@ export default function AboutSection() {
             <h3 className="text-2xl font-display font-bold mb-4">Jeroen Jeuris</h3>
             <div className="space-y-6">
               <p className="text-lg">
-                Ik combineer creativiteit en ervaring om unieke, duurzame projecten te realiseren die perfect aansluiten bij jouw leefwereld. In mijn ontwerpen staan esthetiek en functionaliteit centraal, met aandacht voor circulariteit en regelgeving.
+                Om duurzame en innovatieve projecten te realiseren die perfect aansluiten bij jouw leefwereld, kan je rekenen op mijn creativiteit en ervaring. In mijn ontwerpen staan esthetiek en functionaliteit centraal, met aandacht voor circulariteit en regelgeving.
               </p>
               <div className="w-24 h-1 bg-secondary/10"></div>
               <p className="text-lg">
-                Met een persoonlijke aanpak betrek ik jou vanaf de eerste stap bij het ontwerpproces, om samen te komen tot een harmonieus eindresultaat dat niet alleen innovatief is, maar ook een blijvende positieve impact heeft.
+                Met een persoonlijke aanpak betrek ik jou vanaf de eerste stap bij het ontwerpproces, om samen te komen tot een harmonieus eindresultaat dat niet enkel innovatief is, maar ook een blijvende positieve impact heeft.
               </p>
             </div>
           </div>

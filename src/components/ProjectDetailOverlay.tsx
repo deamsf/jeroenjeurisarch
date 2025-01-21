@@ -136,25 +136,26 @@ export default function ProjectDetailOverlay({ project, onClose }: ProjectDetail
         </div>
 
         {/* Content Section */}
-        <div className="w-full lg:w-1/3 min-h-[50vh] lg:h-screen bg-white/10 backdrop-blur-md p-8 lg:p-12 overflow-y-auto">
+        <div className="w-full lg:w-1/3 min-h-[50vh] lg:h-screen bg-white/10 backdrop-blur-md p-6 lg:p-8 overflow-y-auto">
           <div className="h-full flex flex-col">
-            <div className="mb-8">
-              <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mb-4">
+            <div className="mb-6">
+              <h2 className="text-2xl lg:text-3xl font-display font-medium text-white mb-4">
                 {project.title}
               </h2>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map(tag => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/90"
+                    className="px-2 py-0.5 bg-white/10 rounded-full text-sm text-white/90"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
+              <div className="w-16 h-[2px] bg-accent mb-6"></div>
             </div>
 
-            <div className="prose prose-invert prose-lg max-w-none">
+            <div className="prose prose-invert prose-sm max-w-none">
               <ReactMarkdown>{project.longDescription}</ReactMarkdown>
             </div>
           </div>

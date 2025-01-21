@@ -4,7 +4,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-16 md:py-24 bg-secondary">
       <div className="container">
-        <h2 className="section-title text-primary">Services</h2>
+        <h2 className="section-title text-primary">Wat ik doe</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { icon: BiBuildings, title: 'Ontwerp', desc: 'Complete design solutions for modern buildings' },

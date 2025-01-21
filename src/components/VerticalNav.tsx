@@ -4,9 +4,9 @@ import { BiBuildings } from 'react-icons/bi';
 
 export const navItems = [
   { id: 'hero', icon: FiHome, label: 'Home' },
-  { id: 'projects', icon: BiBuildings, label: 'Projecten' },
+  /* { id: 'projects', icon: BiBuildings, label: 'Projecten' }, */
   { id: 'about', icon: FiUser, label: 'Over mezelf' },
-  { id: 'services', icon: FiBriefcase, label: 'Services' },
+  /* { id: 'services', icon: FiBriefcase, label: 'Services' }, */
   { id: 'testimonials', icon: FiStar, label: 'Testimonials' },
 ];
 

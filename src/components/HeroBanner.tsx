@@ -112,17 +112,17 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
       <div className="container relative z-10">
         <div className="max-w-3xl">
           <div className="animate-float">
-            <h1 className="text-6xl md:text-8xl font-display font-bold text-primary mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-display font-medium text-primary mb-6 leading-tight tracking-wide">
               Innovatief<br />
-              <span className="text-accent">Inspirerend</span><br />
+              <span className="text-accent/90">Inspirerend</span><br />
               <span className="relative group">
                 Impactvol
-                <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent/80 transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></span>
               </span>
             </h1>
           </div>
           <p className="text-xl text-primary/90 mb-12 max-w-xl">
-            Moderne, duurzame architectuur die grenzen verlegt
+            Toekomstgerichte ruimtes voor innovatieve en bewuste gebruikers.
           </p>
           <button onClick={onContactClick} className="btn-primary">Contacteer mij</button>
         </div>
