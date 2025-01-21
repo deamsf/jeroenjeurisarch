@@ -6,8 +6,8 @@ import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
 
 export default function App() {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -16,7 +16,7 @@ export default function App() {
       <MobileNav />
       
       <section id="hero">
-        <HeroBanner onContactClick={scrollToContact} />
+        <HeroBanner onContactClick={scrollToAbout} />
       </section>
       
       <AboutMe />
