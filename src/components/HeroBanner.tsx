@@ -105,7 +105,8 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
             }`}
             style={{ willChange: 'transform' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/70"></div>
+          {/* Changed the gradient overlay opacity here */}
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 to-secondary/20"></div>
         </div>
       ))}
       
