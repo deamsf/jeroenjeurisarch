@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
-import { FiHome, FiUser, FiStar, FiBriefcase } from 'react-icons/fi';
-import { BiBuildings } from 'react-icons/bi';
+import { FiHome, FiUser, FiStar } from 'react-icons/fi';
 
 export const navItems = [
   { id: 'hero', icon: FiHome, label: 'Home' },
-  /* { id: 'projects', icon: BiBuildings, label: 'Projecten' }, */
   { id: 'about', icon: FiUser, label: 'Over mezelf' },
-  /* { id: 'services', icon: FiBriefcase, label: 'Services' }, */
   { id: 'testimonials', icon: FiStar, label: 'Testimonials' },
 ];
 

@@ -1,4 +1,3 @@
-import ProjectsSection from './components/ProjectsSection';
 import HeroBanner from './components/HeroBanner';
 import VerticalNav from './components/VerticalNav';
 import MobileNav from './components/MobileNav';
@@ -19,8 +18,6 @@ export default function App() {
       <section id="hero">
         <HeroBanner onContactClick={scrollToContact} />
       </section>
-
-      {/* <ProjectsSection /> */}
       
       <AboutMe />
       
