@@ -7,6 +7,9 @@ interface HeroBannerProps {
   onContactClick: () => void;
 }
 
+// Add this constant at the top - set to true for development, false for production
+const HIDE_IMAGES = true;
+
 export default function HeroBanner({ onContactClick }: HeroBannerProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [lastMoveTime, setLastMoveTime] = useState(0);
@@ -105,8 +108,8 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
             }`}
             style={{ willChange: 'transform' }}
           />
-          {/* Changed the gradient overlay opacity here */}
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 to-secondary/20"></div>
+          {/* Modified overlay - now completely black when HIDE_IMAGES is true */}
+          <div className={`absolute inset-0 ${HIDE_IMAGES ? 'bg-black' : 'bg-gradient-to-r from-secondary/40 to-secondary/20'}`}></div>
         </div>
       ))}
       

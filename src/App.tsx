@@ -1,7 +1,8 @@
 import HeroBanner from './components/HeroBanner';
 import VerticalNav from './components/VerticalNav';
 import MobileNav from './components/MobileNav';
-import AboutMe from './components/CombinedSection';
+import AboutMeSection from './components/AboutMeSection';
+import ContactSection from './components/ContactSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
 
@@ -19,7 +20,9 @@ export default function App() {
         <HeroBanner onContactClick={scrollToAbout} />
       </section>
       
-      <AboutMe />
+      <AboutMeSection />
+      
+      <ContactSection />
       
       <TestimonialsSection />
 

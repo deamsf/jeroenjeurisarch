@@ -6,6 +6,11 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
+    name: 'Karen J',
+    role: 'Bouwheer',
+    quote: 'Na meer dan acht jaar zijn we nog steeds zeer tevreden van onze woning!',
+  },
+  {
     name: 'Frank D',
     role: 'Bouwheer',
     quote: 'Jeroens moderne stijl sprak ons meteen aan. Hij denkt mee en is actief betrokken in het project.',
@@ -21,7 +26,7 @@ export const testimonials: Testimonial[] = [
     quote: 'Heel duidelijk en interessant gesprek gehad omtrent onze mogelijke verbouwing. Jeroen denkt mee na en zit op dezelfde golflengte!',
   },
   {
-    name: 'Peter',
+    name: 'Peter S',
     role: 'Bouwheer',
     quote: 'Jeroen durft meedenken en duwt niet zijn eigen visie door. Aangenaam om mee samen te werken!',
   },

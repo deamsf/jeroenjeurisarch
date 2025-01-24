@@ -16,7 +16,9 @@
     "react-swipeable": "^7.0.1",
     "lucide-react": "^0.323.0",
     "react-markdown": "^9.0.1",
-    "@tailwindcss/typography": "^0.5.10"
+    "@tailwindcss/typography": "^0.5.10",
+    "@emailjs/browser": "^4.1.0",
+    "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -35,7 +35,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="hover:text-accent transition-colors"
         >
-          3volve Web
+          3volve
         </a>
       </div>
     </>
