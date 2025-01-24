@@ -1,4 +1,3 @@
-import { FiMail, FiMapPin } from 'react-icons/fi';
 import { useState } from 'react';
 
 export default function AboutMeSection() {
