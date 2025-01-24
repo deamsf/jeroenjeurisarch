@@ -1,28 +1,32 @@
-import React from 'react';
-import { Navbar } from './components/Navbar';
-import Hero from './components/Hero';
-import { ServicesNew } from './components/services/ServicesNew';
-import { ClientLogos } from './components/clients/ClientLogos';
-import Cases from './components/Cases';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
+import HeroBanner from './components/HeroBanner';
+import VerticalNav from './components/VerticalNav';
+import MobileNav from './components/MobileNav';
+import AboutMeSection from './components/AboutMeSection';
+import ContactSection from './components/ContactSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
 
-function App() {
+export default function App() {
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-primary">
-      <Navbar />
-      <Hero />
-      <ServicesNew />
-      <About />
-      {/*  <Cases /> */}
-      <ClientLogos />
-      {/* <Testimonials /> */}
-      <Contact />
+    <div className="min-h-screen">
+      <VerticalNav />
+      <MobileNav />
+      
+      <section id="hero">
+        <HeroBanner onContactClick={scrollToAbout} />
+      </section>
+      
+      <AboutMeSection />
+      
+      <ContactSection />
+      
+      <TestimonialsSection />
+
       <Footer />
     </div>
   );
 }
-
-export default App;
