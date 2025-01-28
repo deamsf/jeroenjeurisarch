@@ -21,7 +21,7 @@ export default function AboutMeSection() {
               <div className="absolute inset-0 bg-accent/5 rounded-lg transform rotate-3 transition-transform duration-300 group-hover:rotate-0"></div>
               <div className="relative h-full overflow-hidden rounded-lg bg-white/50">
                 <img 
-                  src={isHovered ? "/logo/logo-jj.svg" : "/img/jeroen.jpg"}
+                  src={isHovered ? "/logo/logo-jj.svg" : "/img/jeroen.jpeg"}
                   alt="Jeroen Jeuris"
                   className={`w-full h-full transition-all duration-500 ${
                     isHovered ? 'object-contain p-8' : 'object-cover'
