@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { FiHome, FiUser, FiStar } from 'react-icons/fi';
+import { DraftingCompass } from 'lucide-react';
 
 export const navItems = [
   { id: 'hero', icon: FiHome, label: 'Home' },
+  { id: 'projects', icon: DraftingCompass, label: 'Projecten' },
   { id: 'about', icon: FiUser, label: 'Over mezelf' },
   { id: 'testimonials', icon: FiStar, label: 'Testimonials' },
 ];
