@@ -14,9 +14,9 @@ export const projectsData = [
   {
     id: 'project2',
     title: 'Woning BA',
-    description: 'Corporate headquarters renovation',
-    longDescription: '# Office Complex Renovation\n\nA complete transformation of an existing office building into a modern workspace.',
-    tags: ['business', 'renovation'],
+    description: 'Tijdloze woning',
+    longDescription: '# Tijdloze woning \n\nDeze prachtige, eigentijdse woning straalt rust en klasse uit dankzij de combinatie van strakke lijnen, lichte gevelstenen en grote raampartijen. De moderne architectuur wordt versterkt door een doordachte indeling die zowel functionaliteit als esthetiek in harmonie brengt. \n\nDankzij de grote glaspartijen wordt binnen en buiten op een elegante manier met elkaar verbonden. Binnenin zorgen een minimalistisch interieur, hoogwaardige afwerkingen en een neutraal kleurenpalet voor een gevoel van openheid en luxe.',
+    tags: ['modern'],
     order: 2,
     isFeatured: true,
     imagePath: '/img/projects/project2/BA (1).jpg'
@@ -24,9 +24,9 @@ export const projectsData = [
   {
     id: 'project3',
     title: 'Woning LD',
-    description: 'Modern city living spaces',
-    longDescription: '# Urban Living Redefined\n\nA collection of premium city apartments that blend style with functionality.',
-    tags: ['modern', 'business'],
+    description: 'Woning met praktijkruimte',
+    longDescription: '# Woning met praktijkruimte \n\nGezien de grote verscheidenheid aan bouwstijlen in de omgeving integreert deze woning zich met haar sober en minimalistisch uitzicht perfect in het bestaande straatbeeld. Door het toepassen van een witte buitenpleister op een bakstenen plint. Wordt een eigentijds, tijdloos en duurzaam geheel gevormd. \n\nDe functionele aanpasbaarheid in de tijd is mogelijk door de openheid van ruimtes en structuur. Interne wanden en indelingen kunnen dus in de toekomst gewijzigd worden in functie van de behoefte van de toekomstige gebruiker',
+    tags: ['modern'],
     order: 3,
     isFeatured: true,
     imagePath: '/img/projects/project3/LD (1).jpg'
@@ -34,9 +34,9 @@ export const projectsData = [
   {
     id: 'project4',
     title: 'Woning CJ',
-    description: 'Just testing',
-    longDescription: '# Pop\n\nA cxxxxxxxxx.',
-    tags: ['modern', 'business'],
+    description: 'Langgerekte woning met gesloten voorgevel en open achtergevel',
+    longDescription: '# Langgerekte woning met gesloten voorgevel en open achtergevel \n\nDe woning ligt op een noord-georiënteerd perceel dat uitgeeft op een natuurgebied. De indeling van de woning is gericht naar de achterliggende zichten, met open grondplan en verbondenheid met bovenliggende delen. In de kern werd een centrale lichtschacht voorzien waardoor de leefruimtes doorheen de dag in licht baden. \n\nDe materialisatie bestaat uit traditionele materialen, gecombineerd met zwarte volkern-panelen. Deze zorgen voor een contrast en verbergen de carport en de toegang naar de tuin vanaf het openbaar domein. \n\nHet resultaat is een duidelijk onderscheid tussen open en gesloten delen met optimale privacy voor de bewoners.',
+    tags: ['modern', 'gesloten'],
     order: 4,
     isFeatured: true,
     imagePath: '/img/projects/project4/CJ (1).jpg'

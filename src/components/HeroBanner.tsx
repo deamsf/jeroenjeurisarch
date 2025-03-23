@@ -8,7 +8,7 @@ interface HeroBannerProps {
 }
 
 // Add this constant at the top - set to true for development, false for production
-const HIDE_IMAGES = true;
+const HIDE_IMAGES = false;
 
 export default function HeroBanner({ onContactClick }: HeroBannerProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

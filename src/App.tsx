@@ -4,6 +4,7 @@ import MobileNav from './components/MobileNav';
 import AboutMeSection from './components/AboutMeSection';
 import ContactSection from './components/ContactSection';
 import TestimonialsSection from './components/TestimonialsSection';
+import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -19,6 +20,8 @@ export default function App() {
       <section id="hero">
         <HeroBanner onContactClick={scrollToAbout} />
       </section>
+
+      <ProjectsSection />
       
       <AboutMeSection />
       

@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="bg-secondary py-2 text-primary/40 text-xs text-center">
         Created by{' '}
         <a 
-          href="https://3volve.netlify.app" 
+          href="https://www.3volve.be" 
           target="_blank" 
           rel="noopener noreferrer"
           className="hover:text-accent transition-colors"
