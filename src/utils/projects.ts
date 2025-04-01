@@ -9,7 +9,7 @@ export const projectsData = [
     tags: ['modern'],
     order: 1,
     isFeatured: true,
-    imagePath: '/img/projects/project1/DH (1).jpg'
+    imagePath: '/img/projects/project1/DH (5).jpg'
   },
   {
     id: 'project2',
@@ -39,7 +39,7 @@ export const projectsData = [
     tags: ['modern', 'gesloten'],
     order: 4,
     isFeatured: true,
-    imagePath: '/img/projects/project4/CJ (1).jpg'
+    imagePath: '/img/projects/project4/CJ (3).jpg'
   }
 ];
 
@@ -49,7 +49,9 @@ const projectImages = {
     '/img/projects/project1/DH (2).jpg',
     '/img/projects/project1/DH (3).jpg',
     '/img/projects/project1/DH (4).jpg',
-    '/img/projects/project1/DH (5).jpg'
+    '/img/projects/project1/DH (5).jpg',
+    '/img/projects/project1/DH (6).jpg',
+    '/img/projects/project1/DH (7).jpg',
   ],
   project2: [
     '/img/projects/project2/BA (1).jpg',
@@ -70,7 +72,10 @@ const projectImages = {
     '/img/projects/project4/CJ (2).jpg',
     '/img/projects/project4/CJ (3).jpg',
     '/img/projects/project4/CJ (4).jpg',
-    '/img/projects/project4/CJ (5).jpg'
+    '/img/projects/project4/CJ (5).jpg',
+    '/img/projects/project4/CJ (6).jpg',
+    '/img/projects/project4/CJ (7).jpg',
+    '/img/projects/project4/CJ (8).jpg'    
   ]
 };
 

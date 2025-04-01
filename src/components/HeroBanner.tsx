@@ -15,7 +15,15 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
   const [lastMoveTime, setLastMoveTime] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
-  const projectImages = projectsData.map(project => project.imagePath);
+  const [projectImages, setProjectImages] = useState<string[]>(projectsData.map(project => project.imagePath));
+
+  function shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
   useEffect(() => {
     const checkMobile = () => {
@@ -23,6 +31,10 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    
+    const shuffledImages = shuffleArray([...projectImages]);
+    setProjectImages(shuffledImages);
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -43,7 +55,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
 
     const now = Date.now();
     const timeDiff = now - lastMoveTime;
-    
+
     if (timeDiff > 300) {
       const speed = Math.sqrt(Math.pow(e.movementX, 2) + Math.pow(e.movementY, 2));
       if (speed > 15) {
@@ -61,7 +73,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
     },
     onSwipedRight: () => {
       if (isMobile && projectImages.length > 0) {
-        setCurrentImageIndex(prev => 
+        setCurrentImageIndex(prev =>
           prev === 0 ? projectImages.length - 1 : prev - 1
         );
       }
@@ -70,7 +82,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
   } as SwipeableProps);
 
   return (
-    <section 
+    <section
       className="relative h-screen flex items-center overflow-hidden bg-black"
       onMouseMove={handleMouseMove}
       {...handlers}
@@ -102,7 +114,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
           )}
           <img
             src={image}
-            alt="Architectural project"
+            alt="Architectuur woning"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
               imagesLoaded[index] ? 'opacity-100' : 'opacity-0'
             }`}
@@ -112,7 +124,7 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
           <div className={`absolute inset-0 ${HIDE_IMAGES ? 'bg-black' : 'bg-gradient-to-r from-secondary/40 to-secondary/20'}`}></div>
         </div>
       ))}
-      
+
       <div className="container relative z-10">
         <div className="max-w-3xl">
           <div className="animate-float">
@@ -131,13 +143,13 @@ export default function HeroBanner({ onContactClick }: HeroBannerProps) {
           <button onClick={onContactClick} className="btn-primary">Contacteer mij</button>
         </div>
       </div>
-      
+
       {isMobile && projectImages.length > 0 && (
         <div className="absolute bottom-8 right-8">
           <Pointer className="text-primary/80 w-6 h-6 animate-swipe" />
         </div>
       )}
-      
+
       <div className="absolute right-0 bottom-0 w-1/2 h-1/2 bg-accent/10 blur-3xl rounded-full transform translate-x-1/4 translate-y-1/4"></div>
     </section>
   );
